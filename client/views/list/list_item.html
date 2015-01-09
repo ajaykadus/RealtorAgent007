@@ -1,0 +1,241 @@
+<template name="listItemView">
+    <div class='col-sm-3'>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4><span class="glyphicon glyphicon-map-marker"
+                                                 aria-hidden="true"></span> {{address}} </h4></div>
+            <div class="panel-body">
+                <ul class='list-unstyled'>
+                    <li><span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                        {{ prettifyDate freshness }}
+                    </li>
+                    <li>{{> hotNessTmpl formatHotness hotness }}
+                    </li>
+                    <li><span class="glyphicon glyphicon-usd glyphicon-align-left"
+                              aria-hidden="true"></span>
+                        {{ priceRange }}
+                    </li>
+                </ul>
+                <a data-toggle="modal" role="button" data-target="#myModal" class='claim-btn btn-default btn'>Claim
+                    It!</a> <span class="center glyphicon glyphicon-briefcase" aria-hidden="true"></span><span
+                    class="no-of-claims">{{claims}}</span> Agents
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header " style="padding: 0px 15px 0px 15px">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h5>Claim Confirmation</h5>
+                </div>
+                <div class="modal-body" style="padding: 25px;">
+                    <div class="media">
+                        <a class="media-left" href="#">
+                            <img height="60px" width="60px" src="img/checkmark.png" alt="">
+                        </a>
+
+                        <div class="media-body">
+                            <h4 class="media-heading">Success!</h4>
+
+                            <p>You have claimed this lead</p>
+                            <a class='claim-btn btn-default btn close-modal'>Keep Hunting!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header lead-details-form">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <span>Lead Details</span>
+                </div>
+                <div class="modal-body">
+                    <div class="row lead-details-row">
+                        <div class="col-md-6 lead-details-first-row">
+                            <div class="">
+                                <ul class='list-unstyled'>
+                                    <li>
+                                        <div class="media">
+                                            <a class="media-left" href="#">
+                                                <img height="50px" width="50px" src="img/person_icon.png" alt="">
+                                            </a>
+
+                                            <div class="media-body" style="padding: 3px">
+                                                <h4 class="media-heading">Steven Derkowitz</h4>
+                                                <span class="lead-check glyphicon glyphicon-ok"></span>Verified Phone
+                                                <span class="lead-check glyphicon glyphicon-ok"></span>Verified Email
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="lead-form-details-li"><span class="bold glyphicon glyphicon-time"
+                                                                           aria-hidden="true"></span>
+                                        {{ prettifyDate freshness }}
+                                    </li>
+                                    <li class="lead-form-details-li">{{> hotNessTmpl formatHotness hotness }}
+                                    </li>
+                                    <li class="lead-form-details-li"><span class="bold glyphicon glyphicon-usd"
+                                                                           aria-hidden="true"></span>
+                                        {{ priceRange }}
+                                    </li>
+                                    <li class="lead-form-details-li"><span class="bold glyphicon glyphicon-home"
+                                                                           aria-hidden="true"></span>
+                                        21 homes viewed
+                                    </li>
+                                    <li class="lead-form-details-li"><span class="bold glyphicon glyphicon-search"
+                                                                           aria-hidden="true"></span>
+                                        14 days searching
+                                    </li>
+
+                                </ul>
+                                <div class="recently-viewed">
+                                    <h5>Recently Viewed</h5>
+
+                                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                                        <div class="media">
+                                            <a class="pull-left" href="#" target="_parent">
+                                                <img alt="image" height="90x" width="100px" class="img-responsive"
+                                                     src="img/house1.jpg"></a>
+
+                                            <div class="clearfix visible-sm"></div>
+
+                                            <div class="media-body fnt-smaller">
+                                                <a href="#" target="_parent"></a>
+
+                                                <h4 class="media-heading">
+                                                    <a href="#" target="_parent">$1,975,000
+                                                        <small class="pull-right">10 E Costco Ln</small>
+                                                    </a></h4>
+
+
+                                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                                    <li>4,820 SqFt</li>
+
+                                                    <li style="list-style: none">|</li>
+
+                                                    <li>5 Beds</li>
+
+                                                    <li style="list-style: none">|</li>
+
+                                                    <li>5 Baths</li>
+                                                </ul>
+
+                                                <p class="hidden-xs"></p><span
+                                                    class="fnt-smaller fnt-lighter fnt-arial">Courtyard</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                                        <div class="media">
+                                            <a class="pull-left" href="#" target="_parent">
+                                                <img alt="image" height="90x" width="100px" class="img-responsive"
+                                                     src="img/house2.jpg"></a>
+
+                                            <div class="clearfix visible-sm"></div>
+
+                                            <div class="media-body fnt-smaller">
+                                                <a href="#" target="_parent"></a>
+
+                                                <h4 class="media-heading">
+                                                    <a href="#" target="_parent">$1,975,000
+                                                        <small class="pull-right">189 W Blue Ln</small>
+                                                    </a></h4>
+
+
+                                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                                    <li>4,820 SqFt</li>
+
+                                                    <li style="list-style: none">|</li>
+
+                                                    <li>5 Beds</li>
+
+                                                    <li style="list-style: none">|</li>
+
+                                                    <li>5 Baths</li>
+                                                </ul>
+
+                                                <p class="hidden-xs"></p><span
+                                                    class="fnt-smaller fnt-lighter fnt-arial">Big Sur</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                                        <div class="media">
+                                            <a class="pull-left" href="#" target="_parent">
+                                                <img alt="image" height="90x" width="100px" class="img-responsive"
+                                                     src="img/house3.jpg"></a>
+
+                                            <div class="clearfix visible-sm"></div>
+
+                                            <div class="media-body fnt-smaller">
+                                                <a href="#" target="_parent"></a>
+
+                                                <h4 class="media-heading">
+                                                    <a href="#" target="_parent">$1,975,000
+                                                        <small class="pull-right">54 W Yell Ln</small>
+                                                    </a></h4>
+
+
+                                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                                    <li>4,820 SqFt</li>
+
+                                                    <li style="list-style: none">|</li>
+
+                                                    <li>5 Beds</li>
+
+                                                    <li style="list-style: none">|</li>
+
+                                                    <li>5 Baths</li>
+                                                </ul>
+
+                                                <p class="hidden-xs"></p><span
+                                                    class="fnt-smaller fnt-lighter fnt-arial">Sunshine</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Lead Message</h5>
+
+                            <div class="lead-form-inquiry-section">
+
+                                <p>"I'm retiring and looking to downsize my phone. Do you have
+                                    any similar home to suggest in this price range? My wife loves
+                                    the style of this house but its too big for our needs."
+                                </p>
+
+                            </div>
+                            <div class="lead-form-reply-section">
+                                <h5>Your Reply</h5>
+                            <textarea class="lead-reply-textarea">
+Hello Mr. Derkowitz,
+
+I would love to help you find the perfect home of your dreams. Lets get together and review your search efforts so we can collaborate in this important work.
+
+Talk to you soon!
+-Kelly Smith
+
+                            </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="padding: 5px 0px 0px 0px">
+                        <button type="button" class="btn btn-primary"><a class="reply-lead-btn" data-toggle="modal"
+                                                                         role="button" data-target="#successModal">Send
+                            & Claim this lead!</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

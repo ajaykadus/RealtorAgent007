@@ -1,0 +1,67 @@
+<template name="navbar" xmlns="http://www.w3.org/1999/html">
+    <nav class="navbar navbar-fixed-top navbar-default navbar-inverse" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img height="40px" alt="Brand" src="img/ProActive_logo.png">
+            </a>
+
+            <!--<p class="navbar-text">-->
+                <!--<span>Proactive Agent</span></p>-->
+
+            <p style="margin-left: 35px" class="navbar-text navbar-right"> Kelly Smith - <a href="#" style="color: green" class="navbar-link">Free Account</a></p>
+        </div>
+
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+    </nav>
+    <nav class="second-nav navbar-fixed-top navbar navbar-default" role="navigation">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="col-sm-3 col-md-6">
+                <form id="search-form" class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="search-string form-control" placeholder="Search" name="q">
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-default search-leads"><i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="divider-vertical col-sm-3 col-md-3">
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Price Range: <span><i class="glyphicon glyphicon-usd"></i>800 - 900K</span><b class=""></b>    <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="glyphicon glyphicon-usd"></i>650 - 800K</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-usd"></i>800 - 900K</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-usd"></i>900 - 1M</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-3 col-md-3">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sort By: <span class="active-sort">Freshness</span><b class=""></b><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="sort-leads hotness" href="#"><i style="color: #ff0000" class="glyphicon glyphicon-fire"></i>Hotness</a></li>
+                        <li><a class="sort-leads freshness" href="#"><i class="glyphicon glyphicon-time"></i>Freshness</a></li>
+                        <li><a class="sort-leads price" href="#"><i style="color: #006400" class="glyphicon glyphicon-usd"></i>Price</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+</template>
